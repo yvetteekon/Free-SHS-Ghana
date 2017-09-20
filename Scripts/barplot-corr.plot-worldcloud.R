@@ -35,7 +35,7 @@ findAssocs(dtm, c("ndc", "cost"), c(0.05, 0.7))
 # correlation plot
 pdf("Term Association.pdf")
 plot(dtm, terms = findFreqTerms(dtm, lowfreq = 160), corThreshold = 0.5,
-     weighting = F, main = "Which Words \nAppearing at Least 160 Times \nCorrelate at a Threshold of 0.5?")
+     weighting = F, main = "Words Often Linked Together \n (Correlation Threshold of 0.5)")
 dev.off()
 
 # both term frequency and association

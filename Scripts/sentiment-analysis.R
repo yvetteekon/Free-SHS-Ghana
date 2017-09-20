@@ -65,6 +65,6 @@ ggplot(data = sentiment_totals, aes(x = sentiment, y = count)) +
   theme(axis.title = element_text(family = "Times", face = "bold", hjust = 0.5)) +
   xlab("Sentiment") + ylab("Total Count") + 
   theme(plot.title = element_text(family = "Times", face = "bold", hjust = 0.5)) +
-  theme(text = element_text(size=12)) + theme(axis.text = element_text(size=12)) + coord_flip() 
-#+ ggtitle("Twitter Sentiments - Free SHS in Ghana")
+  theme(text = element_text(size=12)) + theme(axis.text = element_text(size=12)) + coord_flip() +
+  ggtitle("Public Emotional Tone \nTo Free SHS Policy in Ghana")
 
