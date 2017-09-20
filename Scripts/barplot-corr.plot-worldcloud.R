@@ -23,9 +23,9 @@ inspect(tdm[idx + (0:5), 16])
 # graph of term frequency
 pdf("Term Frequency.pdf")
 # The palette with grey:
-subset(df, freq > 90) %>% ggplot(aes(x = words, y = freq, fill = freq)) +
+subset(df, freq > 160) %>% ggplot(aes(x = words, y = freq, fill = freq)) +
   geom_bar(stat = "identity", alpha = 0.6, width = 0.8) + scale_color_hue() +
-  labs(title = "Words Which Occur at Least 90 Times", x = "Words", y = "Count") +
+  labs(title = "Words Which Occur at Least 160 Times", x = "Words", y = "Count") +
   theme(plot.title = element_text(face = "bold", hjust = 0.5))  + coord_flip()
 dev.off()
 
@@ -50,30 +50,38 @@ color4 <- brewer.pal(6, "Set3")
 color5 <- brewer.pal(6, "Accent")
 color6 <- brewer.pal(12, "Paired")
 
+par(bg = "white")
 set.seed(123)
 wordcloud(df$words, df$freq, scale = c(3, 0.4), min.freq = 11 , random.order = FALSE,
           rot.per = 0.15, colors = color6, vfont = c("script","plain"))
 
+par(bg = "white")
 set.seed(123)
 wordcloud(df$words, df$freq, scale = c(3, 0.4), min.freq = 11 , random.order = FALSE,
           rot.per = 0.15, colors = color6, vfont = c("gothic english","plain"))
 
+par(bg = "white")
 set.seed(123)
 wordcloud(df$words, df$freq, scale = c(3, 0.4), min.freq = 11 , random.order = TRUE,
           rot.per = 0.15, colors = color6, vfont = c("serif","plain"))
 
+par(bg = "white")
 wordcloud(df$words, df$freq, scale = c(3, 0.4), min.freq = 11 , random.order = FALSE,
           rot.per = 0.15, colors = color3, vfont = c("gothic english", "plain"))
 
+par(bg = "white")
 wordcloud(df$words, df$freq, scale = c(3, 1), min.freq = 11 , random.order = FALSE,
           rot.per = 0.15, colors = color3, vfont = c("gothic german", "plain"))
 
+par(bg = "white")
 wordcloud(df$words, df$freq, scale = c(3, 0.4), min.freq = 11 , random.order = FALSE,
           rot.per = 0.15, colors = color3, vfont = c("gothic italian", "plain"))
 
+par(bg = "white")
 wordcloud(df$words, df$freq, scale = c(3, 1), min.freq = 11 , random.order = FALSE,
           rot.per = 0.15, colors = color3, vfont = c("sans serif", "bold"))
 
+par(bg = "white")
 wordcloud(df$words, df$freq, scale = c(3, 1), min.freq = 11 , random.order = FALSE,
           rot.per = 0.15, colors = color3, vfont = c("serif", "cyrillic"))
 

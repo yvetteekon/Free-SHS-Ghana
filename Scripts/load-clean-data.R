@@ -6,7 +6,7 @@ lapply(packages, require, character.only = T)
 load("tweets.RData")
 
 # length of tweets
-l <- length(tweets)
+l <- length(tweets); l
 
 # create an empty vector for tweets
 texts <- vector(mode = "character", length = l)
@@ -14,9 +14,14 @@ texts <- vector(mode = "character", length = l)
 # extract the tweet text from each tweet status
 for (i in 1:l) texts[i] <- tweets[[i]]$getText()
 texts[1]
+length(texts)
+
+# extract unique tweets
+unq.texts <- texts[! duplicated( texts )]
+length(unq.texts)
 
 # create copy of tweets and unlist
-textCopy = texts
+textCopy = unq.texts
 
 # save tweet texts for reproducibility
 save(textCopy, file = "textCopy.RData")
@@ -54,7 +59,8 @@ docs <- tm_map(docs, toString, "ghanaians", "ghanaian")
 
 myStopwords <- c(stopwords("en"), "tco", "freeshsishere", "freeshs", "shs", "free",
                  "gnzdnijdk", "citicbs", "ghtoday", "ghananews", "bbc",  "gogs", "whrlkosm", "amp", "gslwsgdx",
-                 "quqliqdu", "amp", "morningstarr", "quqliqdu", "sef")
+                 "quqliqdu", "amp", "morningstarr", "quqliqdu", "sef", "lisaday", 
+                 "whrlkosm", "newsontv")
 
 docs <- tm_map(docs, removeWords, myStopwords)
 
@@ -109,6 +115,9 @@ df
 row.names(df) <- NULL
 which(df$words == "god")
 df$words <- as.character(df$words)
-df$words[74] <- "God"
-save(df, file = "df.RData")
+df$words[73] <- "God"
+dim(df)
 
+# export data
+save(df, file = "df.RData")
+write.csv(df, "cleanedDF.csv", quote = FALSE)

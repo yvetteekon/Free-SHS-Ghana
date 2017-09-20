@@ -26,11 +26,6 @@ cleanTexts <- lapply(textCopy, function(x) {
   x = gsub(' +',' ',x) ## Remove extra whitespaces
 })
 
-
-
-
-
-
 # more info about tweets
 textsDF <- as.data.frame(cleanTexts)
 class(cleanTexts)
@@ -40,12 +35,12 @@ head(cleanTexts, 3)
 cleanTexts_transpose <- t(cleanTexts)
 dim(cleanTexts_transpose)
 
-cleanTexts_transpose[3200]
+cleanTexts_transpose[1273]
 
 # convert from list to character vector
 cleanTexts <- unlist(cleanTexts_transpose, recursive = FALSE)
 class(cleanTexts)
-cleanTexts[3200]
+cleanTexts[1273]
 
 # get sentiment words from cleaned tweetss
 sentiment <- get_nrc_sentiment(cleanTexts)
@@ -68,6 +63,8 @@ ggplot(data = sentiment_totals, aes(x = sentiment, y = count)) +
   theme_bw() + theme(panel.border = element_blank(), panel.grid.major = element_blank(),
                      panel.grid.minor = element_blank(), axis.line = element_line(color = "black")) + theme(legend.position = "none") +
   theme(axis.title = element_text(family = "Times", face = "bold", hjust = 0.5)) +
-  xlab("Sentiment") + ylab("Total Count") + ggtitle("Twitter Sentiments - Free SHS in Ghana") +
-  theme(plot.title = element_text(family = "Times", face = "bold", hjust = 0.5))
+  xlab("Sentiment") + ylab("Total Count") + 
+  theme(plot.title = element_text(family = "Times", face = "bold", hjust = 0.5)) +
+  theme(text = element_text(size=12)) + theme(axis.text = element_text(size=12)) + coord_flip() 
+#+ ggtitle("Twitter Sentiments - Free SHS in Ghana")
 
