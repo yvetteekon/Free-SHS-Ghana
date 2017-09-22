@@ -8,10 +8,10 @@ packages <- c("twitteR", "RCurl", "base64enc", "curl", "openssl")
 lapply(packages, require, character.only = T)
 
 # set up api credentials
-consumer_key <- "5RHEosbk0lpv4HBmvqYyVrK3N"
-consumer_secret <- "QZlePjwuQdcepF9II1WVSzuKk09ex1MDMwv5djbm0Xz4We6P2D"
-access_token <- "2750011011-yJ3LhwggpAn1tzKBTHulPKimZqXnSTsOOEUlpR6"
-access_secret <- "DifLsVGKZdLpNTaYKKGOPrcTfJCPuFvlV3RhTDoHxs9EI"
+consumer_key <- "xxxx"
+consumer_secret <- "xxxx"
+access_token <- "xxxx"
+access_secret <- "xxxx"
 
 #Sys.setenv(TZ="GMT")
 

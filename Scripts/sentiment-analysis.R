@@ -58,6 +58,9 @@ sentiment_totals <- cbind("sentiment" = rownames(sentiment_totals), sentiment_to
 rownames(sentiment_totals) <- NULL
 
 # Total sentiment score of all texts
+#sentiment_totals = within(sentiment_totals,
+#                 sentiment <- factor(sentiment, levels=names(sort(table(sentiment), decreasing=TRUE))))
+
 ggplot(data = sentiment_totals, aes(x = sentiment, y = count)) +
   geom_bar(aes(fill = sentiment), stat = "identity") +
   theme_bw() + theme(panel.border = element_blank(), panel.grid.major = element_blank(),
